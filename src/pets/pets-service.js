@@ -2,12 +2,12 @@ const PetsService = {
   getAllPets(knex) {
     return knex
       .select('*')
-      .from('youdirtydog_pet')
+      .from('pets')
   },
 
   getPetById(knex, id) {
     return knex
-      .from('youdirtydog_pet')
+      .from('pets')
       .select('*')
       .where('id', id)
       .first()

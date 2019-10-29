@@ -1,6 +1,5 @@
 const express = require('express')
 const AuthService = require('./auth-service')
-
 const authRouter = express.Router()
 const jsonBodyParser = express.json()
 
@@ -41,7 +40,7 @@ authRouter
       })
       .catch(next)
   })
-  .post('/refresh', requireAuth, (req, res) => {
+  .post('/refresh', (req, res) => {
     const sub = req.user.user_name
     const payload = { user_id: req.user.id }
     res.send({

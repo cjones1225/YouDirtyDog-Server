@@ -2,12 +2,12 @@ const CustomersService = {
   getAllCustomers(knex) {
     return knex
       .select('*')
-      .from('youdirtydog_customer')
+      .from('customers')
   },
 
   getCustomerById(knex, id) {
     return knex
-      .from('youdirtydog_customer')
+      .from('customers')
       .select('*')
       .where('id', id)
       .first()
@@ -16,7 +16,7 @@ const CustomersService = {
   insertCustomer(knex, newCustomer) {
     return knex
       .insert(newCustomer)
-      .into('youdirtydog_customer')
+      .into('customers')
       .returning('*')
       .then(rows => {
         return rows[0]
@@ -25,14 +25,14 @@ const CustomersService = {
 
   deleteCustomer(knex, id) {
     return knex
-      .from('youdirtydog_customer')
+      .from('customers')
       .where({ id })
       .delete()
   },
 
   getPetsForCustomer(db, customer_id) {
     return db
-      .from('youdirtydog_pet AS pet')
+      .from('pets AS pet')
       .select(
         'pet.id',
         'pet.name',

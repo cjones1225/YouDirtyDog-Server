@@ -1,10 +1,10 @@
 
 exports.seed = function(knex) {
   // Deletes ALL existing entries
-  return knex('youdirtydog_customer').del()
+  return knex('customers').del()
     .then(function () {
       // Inserts seed entries
-      return knex('youdirtydog_customer').insert([
+      return knex('customers').insert([
         {full_name: 'John Doe', phone_number: '(324)1456578', user_id: 2},
         {full_name: 'Bert Cox', phone_number: '984-756-4521', user_id: '1'},
         {full_name: 'Alyssa Smucker', phone_number: '(498)-677-1546', user_id: 1}
