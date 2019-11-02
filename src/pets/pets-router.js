@@ -17,7 +17,7 @@ petsRouter
       .catch(next)
   })
   .post(jsonParser, (req, res, next) => {
-    const { name, owner_id} = req.body
+    const {name, owner_id} = req.body
     const newPet = { name, owner_id }
 
     for (const [key, value] of Object.entries(newPet)) {

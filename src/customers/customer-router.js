@@ -73,18 +73,4 @@ customersRouter
       })
       .catch(next)
   })
-
-customersRouter.route('/:customer_id/pets/')
-  //.all(requireAuth)
-  .get((req, res, next) => {
-    CustomersService.getPetsForCustomer(
-      req.app.get('db'),
-      req.params.customer_id
-    )
-      .then(pets => {
-        res.json(pets.map(CustomersService.serializeCustomerPets))
-      })
-      .catch(next)
-  })
-
 module.exports = customersRouter
